@@ -1,0 +1,47 @@
+@import '../../styles/styles.scss';
+
+.model__add {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  width: 240px;
+  padding: 18px;
+}
+
+.pickcolor {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+
+  &.active {
+    border: 2px solid black;
+  }
+}
+
+.add-list__colors {
+  margin-top: 10px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    cursor: pointer;
+    padding: 0;
+  }
+}
+
+.close {
+  position: absolute;
+  cursor: pointer;
+  top: -10px;
+  right: 10px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}

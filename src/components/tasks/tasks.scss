@@ -1,0 +1,65 @@
+@import '../../styles//styles.scss';
+
+.tasks {
+  flex: 1;
+}
+
+.tasks__title {
+  font-family: 'Montserrat', sans-serif;
+  padding: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid;
+
+  img {
+    margin-left: 10px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all ease 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+#check {
+  display: none;
+}
+
+.cheackbox {
+  display: flex;
+  padding: 0 20px;
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    margin-right: 10px;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    svg {
+      opacity: 0;
+    }
+  }
+  p {
+    font-weight: 300;
+  }
+}
+
+input:checked + label {
+  background-color: lawngreen;
+  border-color: transparent;
+
+  svg {
+    opacity: 1;
+    path {
+      stroke: #fff;
+    }
+  }
+}
+
+input:checked + .task__name {
+  font-weight: 700;
+}

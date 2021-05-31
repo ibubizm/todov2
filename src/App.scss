@@ -1,0 +1,38 @@
+@import './styles/styles.scss';
+.input {
+  background: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 12px;
+
+  &:focus {
+    border-color: #d3d3d3;
+  }
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 6px;
+  font-family: inherit;
+  padding: 10px;
+  font-weight: 900;
+
+  &--addlist {
+    width: 100%;
+    background-color: $beruza;
+    margin-top: 12px;
+
+    &:hover {
+      transition: all ease 0.3s;
+      background-color: darken($beruza, 10%);
+    }
+
+    &:active {
+      background-color: lighten($beruza, 10%);
+    }
+  }
+}
