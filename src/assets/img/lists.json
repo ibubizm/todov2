@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "name": "bay",
+    "colorId": 5,
+    "tasksId": 1,
+    "color": {
+      "id": 5,
+      "hex": "#b6e6bd",
+      "name": "lime"
+    }
+  },
+  {
+    "id": 2,
+    "name": "jopa",
+    "colorId": 4,
+    "tasksId": 2,
+    "color": {
+      "id": 4,
+      "hex": "#ffbbcc",
+      "name": "pink"
+    }
+  },
+  {
+    "id": 3,
+    "name": "ibubizm",
+    "colorId": 3,
+    "tasksId": 3,
+    "color": {
+      "id": 3,
+      "hex": "#64c4ed",
+      "name": "blue"
+    }
+  },
+  {
+    "id": 4,
+    "name": "mom",
+    "colorId": 2,
+    "tasksId": 4,
+    "color": {
+      "id": 2,
+      "hex": "#42b883",
+      "name": "green"
+    }
+  },
+  {
+    "id": 5,
+    "name": "pop",
+    "colorId": 1,
+    "tasksId": 5,
+    "color": {
+      "id": 1,
+      "hex": "#c9d1d3",
+      "name": "gray"
+    }
+  }
+]

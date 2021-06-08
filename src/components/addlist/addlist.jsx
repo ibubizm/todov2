@@ -1,4 +1,7 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+
+
 import plus from '../../assets/img/add.svg'
 import close from '../../assets/img/close.svg'
 
@@ -7,22 +10,23 @@ import './addlist.scss'
 
 function AddList({colors, onAdd}){
     const [visible, setVisible] = useState(false)
-    const [selectColor, setSelectColor] = useState(colors[0].id)
-
+    const [selectColor, setSelectColor] = useState(null)
     const [inputValue, setInputValue] = useState('')
 
+    useEffect(() =>{
+        if(Array.isArray(colors)){
+            setSelectColor(colors[0].id)
+        }
+    }, [colors])
+
     const createObj = () =>{
-        const color = colors.filter(c => c.id === selectColor)
+        // const color = colors.filter(c => c.id === selectColor)[0]
         
         if(!inputValue){
             alert('input smth')
             return
         }
-        onAdd({
-            id: Math.random(), 
-            name: inputValue,
-            color
-        })
+        axios.post('http://localhost:3001/lists', {name: inputValue, colorId: selectColor}) 
         setInputValue('')
         setVisible(!visible)
     }
@@ -31,7 +35,7 @@ function AddList({colors, onAdd}){
         setInputValue(event.target.value)
     }
 
-    const onClickAdd = () =>{
+    const hideAndShow = () =>{
         setVisible(!visible)
     }
     
@@ -42,7 +46,7 @@ function AddList({colors, onAdd}){
 
     return(
         <div className="">
-            <li onClick={onClickAdd} className="add__button">
+            <li onClick={hideAndShow} className="add__button">
                 <i>
                     <img  src={plus} alt="" />
                 </i>
@@ -50,7 +54,7 @@ function AddList({colors, onAdd}){
             </li>
             {visible && 
             <div className="model__add">
-                <i onClick={onClickAdd} className="close">
+                <i onClick={hideAndShow} className="close">
                     <img src={close} alt="close" />
                 </i>
                 <input onChange={getValue} value={inputValue} className="input" type="text" placeholder="input note"/>

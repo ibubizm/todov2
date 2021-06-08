@@ -1,26 +1,153 @@
 {
-    "lists": [
-        {"id": 1, "name": "bay", "colorId": 5},
-        {"id": 2, "name": "jopa", "colorId": 4},
-        {"id": 3, "name": "ibubizm", "colorId": 3},
-        {"id": 4, "name": "mom", "colorId": 2},
-        {"id": 5, "name": "pop", "colorId": 1}
-    ],
-    "tasks": [
-        {"id": 1, "listId": 2, "text": "return to gorckogo"},
-        {"id": 2, "listId": 2, "text": "complite js"},
-        {"id": 3, "listId": 2, "text": "do smth"},
-        {"id": 4, "listId": 2, "text": "watch shaman king"}
-        
-    ],
-    "colors": [
-        {"id": 1, "hex": "#c9d1d3", "name": "gray" },
-        {"id": 2, "hex": "#42b883", "name": "green" },
-        {"id": 3, "hex": "#64c4ed", "name": "blue" },
-        {"id": 4, "hex": "#ffbbcc", "name": "pink" },
-        {"id": 5, "hex": "#b6e6bd", "name": "lime" },
-        {"id": 6, "hex": "#c355f5", "name": "purple" },
-        {"id": 7, "hex": "#110133", "name": "black" },
-        {"id": 8, "hex": "#ff6464", "name": "red" }      
-    ]
+  "lists": [
+    {
+      "id": 1,
+      "name": "ibubizm",
+      "colorId": 3
+    },
+    {
+      "id": 2,
+      "name": "jopa",
+      "colorId": 4
+    },
+    {
+      "name": "aloe vera",
+      "colorId": 5,
+      "id": 5
+    },
+    {
+      "name": "elmos",
+      "colorId": 6,
+      "id": 6
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "listId": 1,
+      "text": "js"
+    },
+    {
+      "id": 2,
+      "listId": 2,
+      "text": "complite js"
+    },
+    {
+      "id": 5,
+      "listId": 2,
+      "text": "do smth"
+    },
+    {
+      "id": 6,
+      "listId": 1,
+      "text": "do smth"
+    },
+    {
+      "text": "lol",
+      "listId": 5,
+      "id": 8
+    },
+    {
+      "text": "work",
+      "listId": 6,
+      "id": 9
+    },
+    {
+      "text": "dsc",
+      "listId": 5,
+      "id": 10
+    },
+    {
+      "text": "sa",
+      "listId": 5,
+      "id": 11
+    },
+    {
+      "text": "sa",
+      "listId": 6,
+      "id": 12
+    },
+    {
+      "text": "m",
+      "listId": 5,
+      "id": 13
+    },
+    {
+      "text": "xa",
+      "listId": 6,
+      "id": 14
+    },
+    {
+      "text": "asss",
+      "listId": 5,
+      "id": 15
+    },
+    {
+      "text": "pips",
+      "listId": 2,
+      "id": 16
+    },
+    {
+      "text": "ac",
+      "listId": 6,
+      "id": 17
+    },
+    {
+      "text": "sa",
+      "listId": 2,
+      "id": 18
+    },
+    {
+      "text": "ass",
+      "listId": 6,
+      "id": 19
+    },
+    {
+      "text": "jj",
+      "listId": 6,
+      "id": 20
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "hex": "#c9d1d3",
+      "name": "gray"
+    },
+    {
+      "id": 2,
+      "hex": "#42b883",
+      "name": "green"
+    },
+    {
+      "id": 3,
+      "hex": "#64c4ed",
+      "name": "blue"
+    },
+    {
+      "id": 4,
+      "hex": "#ffbbcc",
+      "name": "pink"
+    },
+    {
+      "id": 5,
+      "hex": "#b6e6bd",
+      "name": "lime"
+    },
+    {
+      "id": 6,
+      "hex": "#c355f5",
+      "name": "purple"
+    },
+    {
+      "id": 7,
+      "hex": "#110133",
+      "name": "black"
+    },
+    {
+      "id": 8,
+      "hex": "#ff6464",
+      "name": "red"
+    }
+  ]
 }
