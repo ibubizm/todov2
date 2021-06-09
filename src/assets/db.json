@@ -6,106 +6,40 @@
       "colorId": 3
     },
     {
-      "id": 2,
-      "name": "jopa",
-      "colorId": 4
+      "name": "za",
+      "colorId": 1,
+      "id": 2
     },
     {
-      "name": "aloe vera",
-      "colorId": 5,
-      "id": 5
-    },
-    {
-      "name": "elmos",
-      "colorId": 6,
-      "id": 6
+      "name": "cds",
+      "colorId": 1,
+      "id": 3
     }
   ],
   "tasks": [
     {
       "id": 1,
       "listId": 1,
-      "text": "js"
+      "text": "js",
+      "complited": true
     },
     {
-      "id": 2,
-      "listId": 2,
-      "text": "complite js"
-    },
-    {
-      "id": 5,
-      "listId": 2,
-      "text": "do smth"
-    },
-    {
-      "id": 6,
+      "text": "non",
       "listId": 1,
-      "text": "do smth"
+      "complited": true,
+      "id": 4
+    },
+    {
+      "text": "as",
+      "listId": 2,
+      "complited": false,
+      "id": 5
     },
     {
       "text": "lol",
-      "listId": 5,
-      "id": 8
-    },
-    {
-      "text": "work",
-      "listId": 6,
-      "id": 9
-    },
-    {
-      "text": "dsc",
-      "listId": 5,
-      "id": 10
-    },
-    {
-      "text": "sa",
-      "listId": 5,
-      "id": 11
-    },
-    {
-      "text": "sa",
-      "listId": 6,
-      "id": 12
-    },
-    {
-      "text": "m",
-      "listId": 5,
-      "id": 13
-    },
-    {
-      "text": "xa",
-      "listId": 6,
-      "id": 14
-    },
-    {
-      "text": "asss",
-      "listId": 5,
-      "id": 15
-    },
-    {
-      "text": "pips",
-      "listId": 2,
-      "id": 16
-    },
-    {
-      "text": "ac",
-      "listId": 6,
-      "id": 17
-    },
-    {
-      "text": "sa",
-      "listId": 2,
-      "id": 18
-    },
-    {
-      "text": "ass",
-      "listId": 6,
-      "id": 19
-    },
-    {
-      "text": "jj",
-      "listId": 6,
-      "id": 20
+      "listId": 3,
+      "complited": false,
+      "id": 6
     }
   ],
   "colors": [

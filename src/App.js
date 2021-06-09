@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import SideBar from './components/sidebar'
 import Tasks from './components/tasks/tasks'
-import db from './assets/db.json'
 import axios from 'axios'
 
 import './App.scss';
@@ -27,7 +26,6 @@ function App() {
   }, [])
 
   const onRemove = (id) =>{
-    
     if(window.confirm('are you really?')){
       let newArray = lists.filter(item => item.id !== id)
       setLists(newArray)
@@ -40,16 +38,14 @@ function App() {
     setLists(newList)
   }
 
-  const newTasks = (text, id)  =>{
-    if(text){
-      const newList = lists.map(item => {
-      if(item.id === id){
-        item.tasks.push( {text: text, listId: id})
-        axios.post('http://localhost:3001/tasks', {text: text, listId: id})
+  const newTasks = (data, taskid)  =>{
+    const newList = lists.map(item => {
+      if(item.id === taskid){
+        item.tasks = [...item.tasks, data]
       }
+      return item
     })
-    }
-    
+    setLists(newList)
   }
 
   const onEditListTitle = (id, title) =>{
@@ -62,20 +58,26 @@ function App() {
     setLists(newList)
   }
 
-  const onEditTasks = (newtext, id, taskId) =>{
-    const newListTask = [...lists]
-    newListTask.map(activelist => {
-      if(activelist.id === taskId){
-        activelist.tasks.map(currenttask =>{
-          if(currenttask.id === id){
-            currenttask.text = newtext
-          }
-        })
+  const onEditTasks = (newtext, id, index) =>{
+    // console.log(id)
+    const newList = lists.map(item => {
+      if(item.id === id){
+        item.tasks[index].text = newtext
       }
+      return item
     })
-    setLists(newListTask)
+    setLists(newList)
   }
 
+  const checkBox = (check, id, index) =>{
+    const newList = lists.map(item => {
+      if(item.id === id){
+        item.tasks[index].complited = check
+      }
+      return item
+    })
+    setLists(newList)
+  }
 
   return (
     <div className="todo">
@@ -92,7 +94,9 @@ function App() {
        createNewTask={newTasks} 
        onEditListTitle={onEditListTitle} 
        tasks={activeList}
-       onEditTasks={onEditTasks}/>}
+       onEditTasks={onEditTasks}
+       onChecked={checkBox}
+       />}
     </div>
   )
 }

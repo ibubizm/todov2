@@ -2,48 +2,55 @@ import './tasks.scss'
 import edit from '../../assets/img/edit.svg'
 import add from '../../assets/img/add.svg'
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 
-function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks}){
+function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks, onChecked}){
     const [newTask, setNewTask] = useState(false)
     const [input, setInput] = useState('')
+    const [check, setCheck] = useState(false)
 
-    // console.log(tasks)
-    
     const editTitle = () => {
         const title = window.prompt('input new title', tasks.name)
         onEditListTitle(tasks.id, title)
         axios.patch(`http://localhost:3001/lists/${tasks.id}`, {name: title})
     } 
 
-    const onEditTask = (item) =>{
+    const onEditTask = (item, index) =>{
         const id = item.id
-        const taskId = tasks.id
         const newText = window.prompt('input new task')
         if(newText){
-            onEditTasks( newText, id, taskId)
             axios.patch(`http://localhost:3001/tasks/${id}`, {text: newText})
-
+            .then(({data}) => onEditTasks(newText, tasks.id, index))
         }
-
     }
-
 
     const createTask = () =>{
-        createNewTask(input, tasks.id)
-        toggleInput()
-        setInput('')
+        if(input){
+            axios.post('http://localhost:3001/tasks', {text: input, listId: tasks.id, complited: false})
+            .then(({data}) => {
+                createNewTask(data, tasks.id)
+                toggleInput()
+                setInput('')
+            })
+        }
     }
-
 
     const getValue = (e) =>{ 
         setInput(e.target.value)
     }
 
-
     const toggleInput = () =>{
         setNewTask(!newTask)
+    }
+
+    const toggleCheck = (item, index) =>{
+        const comp = item.complited
+        axios.patch(`http://localhost:3001/tasks/${item.id}`, {complited: !comp})
+        .then(() => {
+            onChecked(!comp, tasks.id, index)
+        })
+
     }
 
 
@@ -58,9 +65,13 @@ function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks}){
             <div className="cheackbox">
                 
                 {tasks && tasks.tasks.map((item, index) => 
-                <div className="task__item" key={index}>
-                    <input id={`check_${item.id}`} className="check" type="checkbox" />
-                    <label htmlFor={`check_${item.id}`}>
+                <div className="task__item" key={`${index}__${Math.random() }`}>
+                    {/* <input 
+                        id={`check_${item.id}`}
+                        htmlFor={`check_${item.id}`}
+                        type="checkbox" 
+                    /> */}
+                    <label className={item.complited ? `check active` : `check`}  onClick={() => toggleCheck(item, index)} >
                         <svg
                             width="11"
                             height="8"
@@ -82,14 +93,17 @@ function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks}){
                     </p>
                 </div>
                 ) }
-                {newTask && <div className="new__task">
+                {newTask ? <div className="new__task">
                     <input className="task__input" value={input} onChange={getValue} type="text" />
                     <button className="btn btn__task" style={{background: tasks.color.hex}} onClick={createTask}>add</button>
-                </div>}
+                    <button className="btn btn__task cancel" onClick={createTask} onClick={toggleInput} >cancel</button>
+                </div>: 
                 <div onClick={toggleInput} className="add_task">
                     <img src={add} alt="add" />
                     <p>add task</p>
                 </div>
+                }
+                
             </div>
         </div>
     )

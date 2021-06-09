@@ -1,7 +1,7 @@
 import listicon from '../assets/img/list.svg'
 import remove from '../assets/img/remove.svg'
 
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import AddList from './addlist/addlist'
 
 function SideBar({items, colors, onAdd, onRemove, onClickItem}){

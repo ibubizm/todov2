@@ -45,7 +45,18 @@
 }
 
 .check {
-  display: none;
+  // display: none;
+  &.active {
+    background-color: lawngreen;
+    border-color: transparent;
+
+    svg {
+      opacity: 1;
+      path {
+        stroke: #fff;
+      }
+    }
+  }
 }
 
 .cheackbox {
@@ -75,17 +86,17 @@
   margin-bottom: 15px;
 }
 
-input:checked + label {
-  background-color: lawngreen;
-  border-color: transparent;
+// input:checked + label {
+//   background-color: lawngreen;
+//   border-color: transparent;
 
-  svg {
-    opacity: 1;
-    path {
-      stroke: #fff;
-    }
-  }
-}
+//   svg {
+//     opacity: 1;
+//     path {
+//       stroke: #fff;
+//     }
+//   }
+// }
 
 input:checked + .task__name {
   font-weight: 700;
@@ -110,6 +121,10 @@ input:checked + .task__name {
   border: none;
   border-radius: 5px;
   font-family: inherit;
+  &.cancel {
+    margin-left: 5px;
+    background-color: rgb(122, 122, 122);
+  }
 }
 
 .task__name {
