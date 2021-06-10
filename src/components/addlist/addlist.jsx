@@ -19,14 +19,26 @@ function AddList({colors, onAdd}){
         }
     }, [colors])
 
+
     const createObj = () =>{
-        // const color = colors.filter(c => c.id === selectColor)[0]
-        
+        console.log(selectColor, colors)
+        // if(){
+
+        // }
+        // const color = 
+        // axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks")
+        // .then(({data}) => console.log(data))
+
         if(!inputValue){
             alert('input smth')
             return
         }
+
+
         axios.post('http://localhost:3001/lists', {name: inputValue, colorId: selectColor}) 
+        .then(() => {
+            onAdd()
+        })
         setInputValue('')
         setVisible(!visible)
     }
@@ -41,7 +53,6 @@ function AddList({colors, onAdd}){
     
     const sel = (id) => {
         setSelectColor(id)
-
     }
 
     return(
@@ -64,7 +75,7 @@ function AddList({colors, onAdd}){
                     <li 
                         key={`${item.id}__${index}`} 
                         style={{background: item.hex}}
-                        className={selectColor === item.id ? `pickcolor  active` : `pickcolor ` }
+                        className={selectColor === item.id ? `pickcolor  active` : `pickcolor `}
                         onClick={() => sel(item.id)}
                         >
                     </li>

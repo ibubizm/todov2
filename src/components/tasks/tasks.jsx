@@ -46,10 +46,10 @@ function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks, onChecked}){
 
     const toggleCheck = (item, index) =>{
         const comp = item.complited
+        onChecked(!comp, tasks.id, index)
         axios.patch(`http://localhost:3001/tasks/${item.id}`, {complited: !comp})
-        .then(() => {
-            onChecked(!comp, tasks.id, index)
-        })
+        // .then(() => {
+        // })
 
     }
 
@@ -94,9 +94,11 @@ function Tasks({tasks, onEditListTitle, createNewTask, onEditTasks, onChecked}){
                 </div>
                 ) }
                 {newTask ? <div className="new__task">
-                    <input className="task__input" value={input} onChange={getValue} type="text" />
-                    <button className="btn btn__task" style={{background: tasks.color.hex}} onClick={createTask}>add</button>
-                    <button className="btn btn__task cancel" onClick={createTask} onClick={toggleInput} >cancel</button>
+                    <input className="input" value={input} onChange={getValue} type="text" />
+                    <div className="btns">
+                        <button className="btn btn__task" style={{background: tasks.color.hex}} onClick={createTask}>add</button>
+                        <button className="btn btn__task cancel" onClick={createTask} onClick={toggleInput} >cancel</button>
+                    </div>
                 </div>: 
                 <div onClick={toggleInput} className="add_task">
                     <img src={add} alt="add" />

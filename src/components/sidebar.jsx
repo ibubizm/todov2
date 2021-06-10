@@ -28,7 +28,7 @@ function SideBar({items, colors, onAdd, onRemove, onClickItem}){
                         {id === index ? 
                             <>
                                 <i style={{background: item.color.hex}} className={`badge`}>
-                                {item.tasks && <span>{item.tasks.length}</span> }
+                                {item.tasks && <div>{item.tasks.length}</div> }
                                 </i>
                                 <span>{item.name}</span>
                                 <img onClick={() => onRemove(item.id)} className="remove__list" src={remove} alt="remove" />

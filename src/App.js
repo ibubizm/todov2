@@ -33,9 +33,9 @@ function App() {
     }
 }
 
-  const onAddList = (obj) =>{
-    const newList = [...lists, obj]
-    setLists(newList)
+  const onAddList = () =>{
+    axios.get("http://localhost:3001/lists?_expand=color&_embed=tasks")
+    .then(({data}) => setLists(data))
   }
 
   const newTasks = (data, taskid)  =>{
@@ -59,7 +59,6 @@ function App() {
   }
 
   const onEditTasks = (newtext, id, index) =>{
-    // console.log(id)
     const newList = lists.map(item => {
       if(item.id === id){
         item.tasks[index].text = newtext

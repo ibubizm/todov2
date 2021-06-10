@@ -6,14 +6,9 @@
       "colorId": 3
     },
     {
-      "name": "za",
-      "colorId": 1,
-      "id": 2
-    },
-    {
-      "name": "cds",
-      "colorId": 1,
-      "id": 3
+      "name": "jopa",
+      "colorId": 6,
+      "id": 7
     }
   ],
   "tasks": [
@@ -24,22 +19,16 @@
       "complited": true
     },
     {
-      "text": "non",
+      "text": "popa",
       "listId": 1,
       "complited": true,
       "id": 4
     },
     {
-      "text": "as",
-      "listId": 2,
+      "text": "olala",
+      "listId": 7,
       "complited": false,
       "id": 5
-    },
-    {
-      "text": "lol",
-      "listId": 3,
-      "complited": false,
-      "id": 6
     }
   ],
   "colors": [
